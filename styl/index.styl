@@ -1,0 +1,278 @@
+@import 'node_modules/stylus-px2rem'
+@import '_portal/reset'
+@import '_portal/mixins'
+global-reset()
+
+mq-mobile = "screen and (max-width: 479px)"
+
+*
+    transition all .25s
+
+body 
+    // font-size 14px
+    overflow-x hidden
+    padding 24px 24px 95px 24px
+    font-family 'HanHei SC','PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif
+
+a 
+    transition: all 0.25s
+    text-decoration: initial
+    &:hover 
+        text-decoration: initial
+.github-corner:hover .octo-arm
+    animation:octocat-wave 560ms ease-in-out
+
+@keyframes octocat-wave
+    0%,100%
+        transform:rotate(0)
+    20%,60%
+        transform:rotate(-25deg)
+    40%,80%
+        transform:rotate(10deg)
+
+.hide
+    display none
+.show
+    display block
+
+.error 
+    h2
+        font-weight bold
+
+.header
+    padding 18px 0 15px 0
+    font-size 12px
+    .logo
+        float: left
+        h1 
+            display none
+    .logo:before
+        content ''
+        min-width 290px
+        height 40px
+        display inline-block
+        background  url('../img/logo.svg') top left  no-repeat
+        background-size contain
+    &:after
+        content ''
+        display block
+        clear both
+    .right
+        text-align right
+        line-height 40px
+        color #717171
+        a 
+            color #717171
+            &:hover
+                color #0500E8
+        .box
+            background: #EAEAEA
+            display: inline-block
+            padding: 0 10px
+            line-height: 23px
+            border-radius: 5px
+            font-size 12px
+            i 
+                color #000
+                font-weight bold
+                font-style inherit
+    .view-type,.view-type-list
+        display inline-block
+        vertical-align middle
+        position relative
+        font-style normal
+        text-align left
+        text-indent -9999px
+        direction ltr
+        color #717171
+        width 2px
+        height 2px
+        &:before,&:after
+            content ''
+            pointer-events none
+        
+    .view-type
+        box-shadow 0 -4px 0,-4px -4px 0,4px -4px 0,0 0 0 32px inset,-4px 0 0,4px 0 0,0 4px 0,-4px 4px 0,4px 4px 0
+        margin -2px 7px 0 7px
+    .view-type-list
+        box-shadow inset 0 0 0 25px,0 -4px 0 0,0 4px 0 0
+        margin 2px 12px 4px 2px
+        &:before
+            width 8px
+            height 2px
+            left 4px
+            box-shadow inset 0 0 0 25px,0 -4px 0 0,0 4px 0 0
+            position absolute
+            top 50%
+            transform translateY(-50%)
+    .preview
+        display inline-block
+        cursor pointer
+        &:hover 
+            .view-type,.view-type-list
+                color #0500e8
+        &:active 
+            .view-type,.view-type-list
+                color red
+.sitelist 
+    .kw 
+        color red
+        font-style inherit
+    li 
+        padding 5px 5px
+        position relative
+        &:after
+            content ''
+            display block
+            border-bottom 1px solid #EEE
+            margin-top 10px
+            
+        
+        .title
+            padding-left 5px
+            margin-right 10px
+            float left
+            font-size 14px
+            a 
+                font-weight bold
+                color #000
+                &:hover 
+                    color red
+            img 
+                height 14px
+                width 14px
+                vertical-align middle
+                margin -2px 4px 0 0
+                border-radius 3px
+                background-color #E8E8E8
+        .description
+            padding 2px 5px 0 5px
+            line-height 1.3
+            display block
+            font-size 12px
+            clear both
+        .tags 
+            font-size 10px
+            float right
+            span 
+                display inline-block
+                background-color #D6D6D6
+                padding 0 3px 0 3px
+                line-height 16px
+                border-radius 3px
+                color #fff
+                margin 0 1px
+        .des
+            color #848484
+    ul:after
+        content ''
+        display block
+        clear both
+    .more
+        text-align center
+        padding 5px
+        font-size 12px
+        a 
+            display inline-block
+            background #818AA2
+            color #fff
+            padding 0 5px
+            border-radius 3ox
+            line-height 18px
+            &:hover 
+                background: #4E5873
+                color: #FFF
+            &:active
+                background: #1D1F27
+    #tags
+        padding 5px 5px
+        span 
+            font-size 12px
+            display inline-block
+            margin 3px
+            padding 4px 5px
+            border-radius 3px
+            background-color #E5E5E5
+            cursor pointer
+            &:hover
+                background-color #BFC8E0
+            &:active
+                background: #98ACFF
+
+.list-itme-grid
+    li 
+        width 25%
+        float left
+        overflow hidden
+        padding 15px
+        &:after
+            margin-top 20px
+        .title
+            white-space nowrap
+            float initial
+            h3
+                single-line()
+        .tags 
+            padding 10px 0 0 4px
+            float inherit
+            height 26px
+            overflow hidden
+        .description
+            height 32px
+            .des
+                multi-line(2)
+.search
+    position absolute
+    bottom 0px
+    left 0px
+    input 
+        position fixed
+        bottom -2px
+        left 0
+        z-index 10
+        font-size 40px
+        padding 15px 30px
+        font-family inherit
+        font-weight 100
+        border none
+        outline none
+        background rgba(255, 255, 255, .95)
+        width 100%
+.spinner
+    position fixed
+    top 50%
+    left 50%
+    z-index 100
+    padding 0
+    margin 0
+    margin-left -12px
+    display block
+    background-color transparent
+    border-radius 50%
+
+@media mq-mobile
+    .header 
+        .right
+            text-align center
+        .box 
+            margin 9px 0 0 7px
+        .logo 
+            float initial
+            text-align center
+            display inherit
+        .logo:before
+            min-width 151px
+
+    .search input
+        font-size 18px
+        padding 15px 10px
+    body 
+        padding 15px 0 55px 0
+    .list-itme-grid
+        li 
+            width 100%
+            padding 5px
+            &:after
+                margin-top 9px
+    .header .preview
+        display none
